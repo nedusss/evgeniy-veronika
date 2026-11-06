@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="ru" class="locked">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Евгений и Вероника — 24.04.2027</title>
+<meta name="description" content="Приглашение на свадьбу Евгения и Вероники, 24 апреля 2027">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Comfortaa:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/color.jpg">
+<style>
+  :root{
+    --ink:#2a2a2c;
+    --soft:#6b6b70;
+    --bw-top:#d4d4d4; --bw-bot:#c4c4c4;
+    --c-top:#bcbcbd;  --c-bot:#b0aeb1;
+    --silk:#c9c9cc;
+    --paper:#f6f6f5;
+    --neon-glow:255,212,59;
+    /* единый жёлтый цвет подсветки для всего сайта */
+    --y1:#fff0a0; --y2:#ffd43b; --y3:255,212,59; --yS:#e0b10f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:#9d9da1}
+  html.locked, html.locked body{overflow:hidden;height:100%}
+  body{font-family:'Comfortaa',sans-serif;color:var(--ink);background:#9d9da1;-webkit-font-smoothing:antialiased}
+  .page{max-width:520px;margin:0 auto;background:var(--paper);overflow:hidden;box-shadow:0 0 60px rgba(0,0,0,.25)}
+
+  /* ---------- ЗАСТАВКА ---------- */
+  .hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--bw-top);user-select:none;-webkit-user-select:none}
+  .ph{position:absolute;inset:0;transition:opacity 1.6s ease}
+  .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block;pointer-events:none}
+  .ph.color{opacity:0}
+  .band{position:absolute;left:0;right:0;pointer-events:none;transition:opacity 1.6s ease}
+  .band.top{top:0;height:22%}
+  .band.bot{bottom:0;height:30%}
+  .band.top.bw{background:linear-gradient(var(--bw-top) 35%,rgba(212,212,212,0))}
+  .band.bot.bw{background:linear-gradient(to top,var(--bw-bot) 52%,rgba(196,196,196,0))}
+  .band.top.c{background:linear-gradient(rgba(60,58,62,.42),rgba(60,58,62,0));opacity:0}
+  .band.bot.c{background:linear-gradient(to top,rgba(60,58,62,.5) 10%,rgba(60,58,62,0));opacity:0}
+
+  .cap{position:absolute;left:0;right:0;top:0;padding:calc(env(safe-area-inset-top) + 26px) 22px 0;text-align:center}
+  .rule{height:1px;background:rgba(42,42,44,.35);margin:0 4px 18px;transition:opacity .6s}
+  .cap-off{font-weight:400;font-size:clamp(22px,6.6vw,30px);letter-spacing:.08em;transition:opacity .6s,transform .6s}
+
+  .neon{color:#fff;opacity:0;
+    text-shadow:0 0 2px #fff,0 0 6px #fff,0 0 12px rgba(var(--neon-glow),.95),0 0 24px rgba(var(--neon-glow),.85),0 0 46px rgba(var(--neon-glow),.6)}
+  /* неоновая вывеска: светлая сердцевина трубки + цветное свечение + засветка фона */
+  /* тёплый неон цвета лампочек — один на всё приглашение */
+  .names,.date,.glow-h{--n1:var(--y1);--n2:var(--y2);--n3:var(--y3);color:#fffbe6;-webkit-text-stroke:.5px rgba(var(--y3),.95);
+    text-shadow:0 0 1px #fff,0 0 4px var(--n1),0 0 9px var(--n2),0 0 18px var(--n2),0 0 34px rgba(var(--n3),.85),0 0 70px rgba(var(--n3),.55)}
+  .names::before,.date::before{content:"";position:absolute;left:8%;right:8%;top:-40%;bottom:-40%;z-index:-1;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(var(--n3),.38),rgba(var(--n3),0));filter:blur(8px);mix-blend-mode:screen;pointer-events:none}
+  .names,.date{isolation:isolate}
+  .ch{display:inline-block;white-space:pre}
+  .ch.flk{animation:flk .7s steps(1,end)}
+  .ch.dim{opacity:.35;text-shadow:0 0 2px var(--n1)}
+  @keyframes flk{0%{opacity:1}12%{opacity:.25;text-shadow:none}22%{opacity:1}40%{opacity:.45;text-shadow:0 0 3px var(--n1)}52%,100%{opacity:1}}
+  .neon-live{animation:hum 7s linear infinite!important;opacity:1}
+  @keyframes hum{0%,100%{opacity:1}46%{opacity:1}46.6%{opacity:.86}47.2%{opacity:1}81%{opacity:1}81.4%{opacity:.92}81.8%{opacity:1}}
+  .names{position:absolute;left:0;right:0;top:calc(env(safe-area-inset-top) + 22px);font-family:'Comfortaa',sans-serif;font-weight:300;font-size:clamp(25px,7.2vw,36px);letter-spacing:.05em;line-height:1.15;white-space:nowrap;text-align:center}
+  .names i{font-style:normal;font-size:.75em;padding:0 .18em}
+
+  .bottom{position:absolute;left:0;right:0;bottom:0;padding-bottom:calc(env(safe-area-inset-bottom) + 18px)}
+  .hint{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 116px);text-align:center;font-size:13px;letter-spacing:.06em;color:#4a4a4e;transition:opacity .5s}
+  .plugbar{position:relative;height:100px;transition:opacity .8s ease .5s,transform .9s ease .5s}
+  #plugsvg{display:block;width:100%;height:100px;touch-action:none;overflow:visible}
+  #plug{cursor:grab}
+  #plug:focus{outline:none}
+  #plug:focus-visible .body{stroke:var(--yS);stroke-width:2}
+  .dragging #plug{cursor:grabbing}
+  .chev{animation:chev 1.4s infinite}
+  .chev:nth-child(2){animation-delay:.18s}
+  .chev:nth-child(3){animation-delay:.36s}
+  @keyframes chev{0%,100%{opacity:.15}40%{opacity:.85}}
+
+  .date{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 64px);display:flex;align-items:center;gap:14px;padding:0 26px;font-size:clamp(24px,7vw,32px);font-weight:300;letter-spacing:.08em}
+  /* под датой — мягкое тёплое затемнение, чтобы неон читался на светлом низе */
+  .date::after{content:"";position:absolute;left:6%;right:6%;top:-70%;bottom:-70%;z-index:-2;border-radius:50%;background:radial-gradient(closest-side,rgba(70,50,30,.32),rgba(70,50,30,0));filter:blur(6px)}
+  .date .ln{flex:1;height:2px;border-radius:2px;background:#fffbe6;box-shadow:0 0 2px #fff,0 0 5px var(--n1),0 0 11px var(--n2),0 0 24px rgba(var(--n3),.75)}
+  .scroll-hint{position:absolute;left:50%;bottom:calc(env(safe-area-inset-bottom) + 8px);transform:translateX(-50%);opacity:0;transition:opacity 1s;color:#6b7280;font-size:11px;letter-spacing:.2em;text-align:center}
+  .scroll-hint svg path{stroke:#6b7280}
+  /* после включения фото плавно растворяется в фон страницы */
+  .hero{transition:background-color 1.6s ease}
+  .hero.on{background-color:var(--paper)}
+  .ph.color img{-webkit-mask-image:linear-gradient(#000 0,#000 58%,rgba(0,0,0,.6) 76%,transparent 97%);mask-image:linear-gradient(#000 0,#000 58%,rgba(0,0,0,.6) 76%,transparent 97%)}
+  .scroll-hint svg{display:block;margin:4px auto 0;animation:bob 1.8s infinite}
+  @keyframes bob{50%{transform:translateY(5px)}}
+
+  /* состояние «включено» */
+  .hero.on .ph.color{opacity:1;animation:flick 1.5s linear}
+  .hero.on .band.bw{opacity:0}
+  .hero.on .ph.bw{opacity:0;transition-delay:1.2s}
+  .hero.on .band.top.c{opacity:1}
+  .hero.on .cap-off{opacity:0;transform:translateY(-8px)}
+  .hero.on .rule{opacity:0}
+  .hero.on .hint{opacity:0}
+  .hero.on .plugbar{opacity:0;transform:translateY(40px)}
+  .hero.on .names{animation:neonOn 1.6s linear .9s forwards}
+  .hero.on .date{animation:neonOn 1.4s linear 1.7s forwards}
+  .hero.on .scroll-hint{opacity:.85;transition-delay:3s}
+  @keyframes flick{0%{opacity:0}8%{opacity:.7}12%{opacity:.1}20%{opacity:.85}26%{opacity:.35}34%{opacity:1}100%{opacity:1}}
+  @keyframes neonOn{0%{opacity:0}10%{opacity:.8}14%{opacity:.1}24%{opacity:.9}30%{opacity:.3}38%{opacity:1}52%{opacity:.7}58%,100%{opacity:1}}
+  .spark{opacity:0}
+  .spark.go{animation:spark .5s ease-out}
+  @keyframes spark{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(1.6)}}
+
+  /* ---------- светящиеся заголовки ---------- */
+  .glow-h{position:relative;isolation:isolate;color:#fffbe6;-webkit-text-stroke:.9px var(--yS);
+    text-shadow:0 0 1px #fff,0 0 4px var(--y1),0 0 9px var(--y2),0 0 18px rgba(var(--y3),.7),0 0 34px rgba(var(--y3),.4)}
+  .glow-h.seen{animation:neonOn 1.6s linear}
+
+  /* ---------- ДОРОГИЕ ГОСТИ ---------- */
+  .guests{padding:30px 24px 80px;text-align:center;background:var(--paper)}
+  .guests h2{font-family:'Bad Script',cursive;font-weight:400;font-size:clamp(40px,12vw,56px);line-height:1.1}
+  .guests .lead{margin:28px auto 0;max-width:380px;font-weight:300;font-size:clamp(17px,4.8vw,20px);line-height:1.7;color:#3b3b3f}
+  .month{margin-top:64px;display:inline-flex;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:1px dashed rgba(42,42,44,.35)}
+  .month b{font-family:'Bad Script',cursive;font-weight:400;font-size:clamp(46px,13vw,60px);line-height:1}
+  .month span{font-weight:300;font-size:clamp(22px,6vw,28px);letter-spacing:.06em}
+  .cal{margin:34px auto 0;max-width:420px;display:grid;grid-template-columns:repeat(7,1fr);row-gap:14px}
+  .cal .wd{font-weight:300;font-size:15px;color:#9a9aa0}
+  .cal .d{position:relative;font-weight:300;font-size:clamp(22px,6.4vw,28px);line-height:1.6}
+  .cal .d.mark{font-weight:400}
+  .cal .heart{position:absolute;left:50%;top:50%;width:60px;height:56px;transform:translate(-50%,-52%);overflow:visible;pointer-events:none}
+  .cal .heart path{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s ease .3s}
+  .cal.seen .heart path{stroke-dashoffset:0}
+  .family{margin-top:18px;font-family:'Bad Script',cursive;font-size:clamp(24px,7vw,30px);color:var(--ink);opacity:0;transform:translateY(8px);transition:opacity 1s ease 1.6s,transform 1s ease 1.6s}
+  .cal.seen + .family{opacity:1;transform:none}
+
+  /* ---------- общие для новых блоков ---------- */
+  :root{--blue:#2b4f8f;--sky:#bfe0f5;--beige:#e8dac6}
+  .sec{padding:64px 24px;text-align:center;background:var(--paper)}
+  .sec h2{font-family:'Bad Script',cursive;font-weight:400;font-size:clamp(38px,11vw,52px);line-height:1.1}
+  .sec .txt{margin:20px auto 0;max-width:380px;font-weight:300;font-size:clamp(16px,4.4vw,18px);line-height:1.7;color:#3b3b3f}
+
+  /* гирлянда с лампочками */
+  .garland{display:block;width:100%;height:96px;overflow:visible}
+  .garland .wire{fill:none;stroke:#55565c;stroke-width:1.4}
+  .garland .bulb{transform-box:fill-box;transform-origin:50% 0;animation:sway 5s ease-in-out infinite}
+  .garland .glass{fill:#e4e4e8;stroke:rgba(0,0,0,.12);stroke-width:.6;transition:fill .5s}
+  .garland .halo{opacity:0;transition:opacity .6s}
+  .garland.seen .glass{fill:url(#gBulb)}
+  .garland.seen .halo{opacity:1}
+  @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+
+  /* программа — заглушка */
+  .prog-slot{margin:28px auto 0;max-width:360px;padding:30px 22px;border:1.5px dashed rgba(43,79,143,.35);border-radius:22px;color:#5b5f6b;font-weight:300;line-height:1.6}
+  .prog-slot svg{display:block;margin:0 auto 12px}
+  .prog-slot .fil{animation:filament 4s infinite}
+  @keyframes filament{0%,100%{opacity:1}62%{opacity:1}63%{opacity:.3}65%{opacity:1}67%{opacity:.5}69%{opacity:1}}
+
+  /* дресс-код */
+  .palette{margin:34px auto 0;max-width:380px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .sw{text-align:center;font-size:clamp(10px,2.8vw,12px);font-weight:300;color:#55565c;white-space:nowrap}
+  .sw i{display:block;width:clamp(46px,13vw,58px);height:clamp(46px,13vw,58px);margin:0 auto 8px;border-radius:50%;box-shadow:inset 0 -6px 12px rgba(0,0,0,.12),inset 0 6px 10px rgba(255,255,255,.6),0 4px 12px rgba(0,0,0,.12)}
+  .sw.grey i{background:radial-gradient(circle at 35% 30%,#ecebef,#cfcdd4 60%,#a9a7b0)}
+  .sw.sky i{background:radial-gradient(circle at 35% 30%,#e6f4fd,#bfe0f5 60%,#93c2e4)}
+  .sw.silver i{background:linear-gradient(135deg,#f6f7f9 0%,#b7bbc3 30%,#eef0f3 50%,#9ea3ab 75%,#e4e6ea 100%)}
+  .sw.beige i{background:radial-gradient(circle at 35% 30%,#f6eee2,#e8dac6 60%,#cdb999)}
+  .sw.blue i{background:radial-gradient(circle at 35% 30%,#5a7fc0,#2b4f8f 60%,#1b3466)}
+
+  /* место */
+  .place-name{margin-top:22px;font-size:clamp(22px,6.4vw,28px);letter-spacing:.06em;font-weight:400}
+  .place-addr{margin-top:8px;font-weight:300;color:#7a7d86;line-height:1.6}
+  .venue{margin:28px auto 0;max-width:420px;border-radius:22px;overflow:hidden;
+    box-shadow:0 0 0 1px rgba(var(--y3),.95),0 0 14px rgba(var(--y3),.55),0 0 34px rgba(var(--y3),.25),0 14px 30px rgba(0,0,0,.18)}
+  .venue img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+  .map-btn{display:inline-block;margin-top:22px;padding:13px 28px;border:1px solid var(--blue);border-radius:999px;color:var(--blue);text-decoration:none;font-size:15px;letter-spacing:.04em;transition:box-shadow .3s,background .3s}
+  .map-btn:hover{background:#fffbea;box-shadow:0 0 0 1px var(--y2),0 0 12px rgba(var(--y3),.6)}
+
+  /* анкета */
+  .rsvp form{margin:30px auto 0;max-width:400px;text-align:left}
+  .rsvp label.f{display:block;font-size:14px;color:#55565c;margin:22px 0 10px}
+  .rsvp input[type=text]{width:100%;padding:14px 18px;border:1px solid #cfd2d8;border-radius:14px;background:#fff;font:inherit;font-size:16px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+  .rsvp input[type=text]:focus{border-color:var(--yS);box-shadow:0 0 0 3px rgba(var(--y3),.3),0 0 14px rgba(var(--y3),.3)}
+  .opts{display:flex;flex-wrap:wrap;gap:10px}
+  .opt{position:relative}
+  .opt input{position:absolute;opacity:0;pointer-events:none}
+  .opt span{display:inline-block;padding:11px 18px;border:1px solid #cfd2d8;border-radius:999px;background:#fff;font-size:15px;cursor:pointer;transition:all .25s;user-select:none}
+  .opt input:checked + span{border-color:var(--yS);color:var(--ink);background:#fffbea;box-shadow:0 0 0 1px var(--y2),0 0 10px rgba(var(--y3),.65),0 0 22px rgba(var(--y3),.3)}
+  .opt input:focus-visible + span{outline:2px solid var(--yS);outline-offset:2px}
+  .attend .opt{flex:1}
+  .attend .opt span{width:100%;text-align:center;padding:14px 10px;font-size:16px}
+  .drinks{transition:opacity .4s,max-height .5s;max-height:600px;overflow:hidden}
+  .drinks.off{opacity:0;max-height:0}
+  .send{display:block;width:100%;margin-top:30px;padding:16px;border:0;border-radius:999px;background:var(--blue);color:#fff;font:inherit;font-size:16px;letter-spacing:.06em;cursor:pointer;transition:box-shadow .3s,transform .15s}
+  .send:hover{box-shadow:0 0 0 1px var(--y2),0 0 14px rgba(var(--y3),.7),0 0 30px rgba(var(--y3),.35)}
+  .send:active{transform:scale(.98)}
+  .send:disabled{opacity:.6}
+  .err{margin-top:12px;color:#b3261e;font-size:14px;min-height:1em}
+  .thanks{display:none;margin:30px auto 0;max-width:360px;font-size:18px;line-height:1.6}
+  .rsvp.done form{display:none}
+  .rsvp.done .thanks{display:block}
+
+  /* финал: синяя неоновая вывеска на тёмной стене */
+  .final{position:relative;padding:80px 20px 70px;text-align:center;background:radial-gradient(ellipse at 50% 40%,#2a2d36,#141519 75%)}
+  .final .sign{position:relative;display:inline-block;font-family:'Bad Script',cursive;font-size:clamp(46px,14vw,64px);line-height:1.1;
+    --n1:var(--y1);--n2:var(--y2);--n3:var(--y3);color:#fffbe6;-webkit-text-stroke:.5px rgba(var(--y3),.9);
+    text-shadow:0 0 1px #fff,0 0 4px var(--n1),0 0 9px var(--n2),0 0 18px var(--n2),0 0 34px rgba(var(--n3),.85),0 0 70px rgba(var(--n3),.55);isolation:isolate}
+  .final .sign::before{content:"";position:absolute;left:-10%;right:-10%;top:-50%;bottom:-50%;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(var(--n3),.3),rgba(var(--n3),0));filter:blur(10px)}
+  .final .sign.off{opacity:.12;text-shadow:none;-webkit-text-stroke:.5px rgba(var(--y3),.35)}
+  .final .sign.lit{animation:neonOn 1.6s linear forwards}
+  .final .sub{margin-top:22px;color:#c9d6ea;font-weight:300;letter-spacing:.2em;font-size:14px}
+
+  /* программа */
+  .timeline{list-style:none;margin:26px auto 0;max-width:340px}
+  .timeline li{padding:6px 0}
+  .timeline time,.d2 time{display:block;font-weight:300;font-size:clamp(40px,12vw,52px);letter-spacing:.04em;line-height:1.1;color:var(--ink)}
+  .timeline b{display:block;margin-top:2px;font-weight:400;font-size:17px;color:#3b3b3f}
+  .timeline small{display:block;margin-top:4px;font-size:13px;font-weight:300;color:#8a8d96}
+  .timeline li:not(:last-child)::after{content:"";display:block;width:7px;height:7px;border-radius:50%;margin:20px auto 12px;background:#fffbe6;
+    box-shadow:0 0 3px var(--y1),0 0 9px var(--y2),0 0 18px rgba(var(--y3),.6)}
+
+  /* адреса */
+  .addr-card{margin:36px auto 0;max-width:420px}
+  .addr-card + .addr-card{padding-top:36px;border-top:1px solid rgba(43,79,143,.12)}
+  .lbl{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#5f8fc4}
+  .addr-card .place-name{margin-top:10px}
+  .addr-card .venue{margin-top:18px}
+
+  /* второй день */
+  .accent{display:block;font-weight:400;color:var(--ink);margin-bottom:8px}
+  .d2{margin-top:34px}
+  .d2-date{margin-top:6px;font-weight:300;color:#5f8fc4;letter-spacing:.06em}
+  .d2 .place-name{margin-top:18px;font-size:clamp(19px,5.4vw,24px)}
+  .pool{margin:26px auto 0;max-width:360px;padding:18px 20px;border-radius:18px;background:#fffbea;border:1px solid rgba(var(--y3),.55);box-shadow:0 0 14px rgba(var(--y3),.25);
+    font-weight:300;font-size:clamp(15px,4.2vw,17px);line-height:1.65;color:#3b3b3f}
+
+  /* анкета: доп. вопросы */
+  .opts.attend{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .opts.attend .opt:nth-child(3){grid-column:1 / -1}
+  .attend .opt span{padding:13px 6px;font-size:15px;white-space:nowrap}
+  .opts.two .opt{flex:1}
+  .opts.two .opt span{width:100%;text-align:center}
+  .hint2{color:#9a9aa0}
+  .extra{transition:opacity .4s;overflow:hidden}
+  .extra.off{display:none}
+  .own{margin-top:12px}
+  .own.off{display:none}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.seen{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.2s!important}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ЗАСТАВКА: «включи любовь» -->
+  <section class="hero" id="hero">
+    <div class="ph bw"><img src="img/bw.jpg" alt="Евгений и Вероника"></div>
+    <div class="ph color"><img src="img/color.jpg" alt=""></div>
+    <div class="band top bw"></div><div class="band top c"></div>
+    <div class="band bot bw"></div><div class="band bot c"></div>
+
+    <header class="cap">
+      <div class="rule"></div>
+      <h1 class="cap-off">ВКЛЮЧИ ЛЮБОВЬ</h1>
+    </header>
+    <h2 class="neon names">Евгений <i>и</i> Вероника</h2>
+
+    <div class="hint" id="hint">потяните вилку к розетке</div>
+    <div class="date neon"><span class="ln"></span><span class="dt">24.04.27</span><span class="ln"></span></div>
+    <div class="scroll-hint">листайте
+      <svg width="18" height="12" viewBox="0 0 18 12"><path d="M2 2l7 7 7-7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="bottom">
+      <div class="plugbar" id="plugbar">
+        <svg id="plugsvg" aria-label="Вилка и розетка">
+          <defs>
+            <!-- пластик: цилиндрическая светотень сверху вниз -->
+            <linearGradient id="gCyl" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#9a9aa0"/><stop offset=".1" stop-color="#dcdce1"/><stop offset=".26" stop-color="#ffffff"/>
+              <stop offset=".46" stop-color="#f4f4f6"/><stop offset=".74" stop-color="#d0d0d5"/><stop offset=".92" stop-color="#a6a6ac"/><stop offset="1" stop-color="#85858c"/>
+            </linearGradient>
+            <linearGradient id="gRubber" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8d8d93"/><stop offset=".3" stop-color="#f2f2f4"/><stop offset=".6" stop-color="#d8d8dc"/><stop offset="1" stop-color="#86868c"/>
+            </linearGradient>
+            <!-- латунь/никель штырей -->
+            <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5f6268"/><stop offset=".22" stop-color="#f4f6f9"/><stop offset=".42" stop-color="#c4c8ce"/>
+              <stop offset=".7" stop-color="#868a91"/><stop offset="1" stop-color="#4e5156"/>
+            </linearGradient>
+            <linearGradient id="gWall" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#c9c9ce"/><stop offset=".4" stop-color="#f6f6f8"/><stop offset="1" stop-color="#d4d4d8"/>
+            </linearGradient>
+            <linearGradient id="gRim" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#b9b9be"/><stop offset=".5" stop-color="#f7f7f9"/><stop offset="1" stop-color="#dcdce0"/>
+            </linearGradient>
+            <radialGradient id="gCup" cx=".6" cy=".5" r=".7">
+              <stop offset="0" stop-color="#5e5e64"/><stop offset=".55" stop-color="#9c9ca2"/><stop offset="1" stop-color="#d3d3d7"/>
+            </radialGradient>
+            <radialGradient id="gSpark"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#fff0a0"/><stop offset=".6" stop-color="rgba(255,212,59,.6)"/><stop offset="1" stop-color="rgba(255,212,59,0)"/></radialGradient>
+            <filter id="soft" x="-20%" y="-40%" width="140%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".28"/></filter>
+            <filter id="blur3" x="-20%" y="-100%" width="140%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+          </defs>
+
+          <!-- провод: тень, оплётка, блик -->
+          <path id="cableS" fill="none" stroke="rgba(0,0,0,.2)" stroke-width="9" stroke-linecap="round" filter="url(#blur3)" transform="translate(0,6)"/>
+          <path id="cableO" fill="none" stroke="#86868c" stroke-width="10" stroke-linecap="round"/>
+          <path id="cable"  fill="none" stroke="#e6e6ea" stroke-width="7.6" stroke-linecap="round"/>
+          <path id="cableH" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity=".95" transform="translate(0,-1.8)"/>
+
+          <!-- стрелки -->
+          <g id="chevs" fill="none" stroke="#4a4a4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path class="chev" d="M0,-6 L6,0 L0,6"/>
+            <path class="chev" d="M12,-6 L18,0 L12,6"/>
+            <path class="chev" d="M24,-6 L30,0 L24,6"/>
+          </g>
+
+          <!-- вилка (вид сбоку, штырями к розетке) -->
+          <g id="plug" tabindex="0" role="button" aria-label="Вилка: потяните к розетке или нажмите Enter">
+            <rect x="-44" y="-44" width="150" height="88" fill="transparent"/>
+            <ellipse cx="26" cy="34" rx="54" ry="4.5" fill="rgba(0,0,0,.22)" filter="url(#blur3)"/>
+            <g filter="url(#soft)">
+              <!-- гибкий хвостовик с рёбрами -->
+              <path d="M-34,-5.6 C-22,-6.2 -11,-8 0,-11.5 L0,11.5 C-11,8 -22,6.2 -34,5.6 Z" fill="url(#gRubber)" stroke="#8a8a90" stroke-width=".6"/>
+              <path d="M-29,-6 v12 M-24,-6.5 v13 M-19,-7 v14 M-14,-7.8 v15.6 M-9,-8.8 v17.6 M-4,-10 v20" stroke="rgba(0,0,0,.18)" stroke-width="1.3"/>
+              <path d="M-28,-5.6 v3 M-23,-6 v3.2 M-18,-6.6 v3.4 M-13,-7.3 v3.6 M-8,-8.2 v3.8 M-3,-9.4 v4" stroke="#fff" stroke-width=".9" opacity=".8"/>
+              <!-- корпус -->
+              <path class="body" d="M0,-17 C0,-20.6 2.6,-22 7,-22 L45,-23.2 C48.2,-23.2 50,-21.6 50,-19 L50,19 C50,21.6 48.2,23.2 45,23.2 L7,22 C2.6,22 0,20.6 0,17 Z" fill="url(#gCyl)" stroke="#86868c" stroke-width=".7"/>
+              <!-- рифление под пальцы -->
+              <path d="M10,-17 v34 M14.5,-17.4 v34.8 M19,-17.8 v35.6 M23.5,-18.2 v36.4 M28,-18.5 v37 M32.5,-18.8 v37.6" stroke="rgba(0,0,0,.13)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M11.4,-15 v8 M15.9,-15.4 v8 M20.4,-15.8 v8 M24.9,-16.2 v8 M29.4,-16.5 v8 M33.9,-16.8 v8" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".9"/>
+              <!-- фланец -->
+              <rect x="50" y="-27" width="9" height="54" rx="3.4" fill="url(#gCyl)" stroke="#86868c" stroke-width=".7"/>
+              <rect x="58" y="-24.5" width="2.6" height="49" rx="1.2" fill="#a2a2a8"/>
+              <rect x="51.5" y="-29" width="6" height="3" rx="1" fill="url(#gMetal)"/>
+              <rect x="51.5" y="26"  width="6" height="3" rx="1" fill="url(#gMetal)"/>
+              <!-- штыри: дальний чуть выше и темнее -->
+              <rect x="60" y="-11" width="27" height="6" rx="3" fill="url(#gMetal)" opacity=".8"/>
+              <rect x="60" y="3"   width="28.5" height="7.2" rx="3.6" fill="url(#gMetal)"/>
+              <path d="M62,4.6 h22" stroke="#fff" stroke-width="1" stroke-linecap="round" opacity=".85"/>
+            </g>
+          </g>
+
+          <!-- розетка (накладная, вид сбоку, на стене справа) -->
+          <g id="socket">
+            <ellipse cx="-20" cy="44" rx="30" ry="4" fill="rgba(0,0,0,.2)" filter="url(#blur3)"/>
+            <g filter="url(#soft)">
+              <rect x="-6" y="-48" width="12" height="96" rx="2" fill="url(#gWall)" stroke="#a5a5aa" stroke-width=".6"/>
+              <path d="M-6,-40 C-22,-40 -35,-37 -40,-30 L-42,-25 L-42,25 L-40,30 C-35,37 -22,40 -6,40 Z" fill="url(#gCyl)" stroke="#86868c" stroke-width=".7"/>
+              <path d="M-36,-31 C-26,-36 -16,-37 -8,-37" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round" opacity=".9"/>
+              <ellipse cx="-42" cy="0" rx="6" ry="27" fill="url(#gRim)" stroke="#8e8e94" stroke-width=".7"/>
+              <ellipse cx="-43" cy="0" rx="3.8" ry="21" fill="url(#gCup)"/>
+              <rect x="-45" y="-22" width="3.4" height="3" rx=".8" fill="url(#gMetal)"/>
+              <rect x="-45" y="19"  width="3.4" height="3" rx=".8" fill="url(#gMetal)"/>
+              <ellipse cx="-43.6" cy="-8" rx="1.3" ry="2.8" fill="#1e1e22"/>
+              <ellipse cx="-43.6" cy="8"  rx="1.4" ry="3"   fill="#1e1e22"/>
+            </g>
+          </g>
+          <circle id="spark" class="spark" r="30" fill="url(#gSpark)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОРОГИЕ ГОСТИ -->
+  <section class="guests">
+    <h2 class="reveal glow-h">Дорогие гости!</h2>
+    <p class="lead reveal">С огромной радостью приглашаем вас разделить с&nbsp;нами трогательный и&nbsp;важный момент нашей жизни.</p>
+
+    <div class="month reveal"><b>Апрель</b><span>2027</span></div>
+
+    <div class="cal" id="cal">
+      <div class="wd">Пн</div><div class="wd">Вт</div><div class="wd">Ср</div><div class="wd">Чт</div><div class="wd">Пт</div><div class="wd">Сб</div><div class="wd">Вс</div>
+      <div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div>
+      <div class="d mark">24
+        <svg class="heart" viewBox="0 0 86 80"><path pathLength="1" d="M44,74 C30,62 6,46 5,26 C4,12 14,4 25,5 C35,6 41,14 43,24 C45,13 52,5 63,5 C75,5 83,14 81,27 C79,45 58,60 42,75 C40,77 38,73 36,70"/></svg>
+      </div>
+      <div class="d">25</div>
+    </div>
+    <div class="family">мы станем семьёй</div>
+  </section>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <radialGradient id="gBulb" cx=".45" cy=".4" r=".7"><stop offset="0" stop-color="#fffbe6"/><stop offset=".45" stop-color="#fff0a0"/><stop offset="1" stop-color="#ffd43b"/></radialGradient>
+      <radialGradient id="gHalo"><stop offset="0" stop-color="rgba(255,212,59,.7)"/><stop offset="1" stop-color="rgba(255,212,59,0)"/></radialGradient>
+    </defs>
+  </svg>
+
+  <!-- ПРОГРАММА -->
+  <section class="sec prog">
+    <svg class="garland reveal" data-n="7" aria-hidden="true"></svg>
+    <h2 class="reveal glow-h">Программа дня</h2>
+    <ol class="timeline">
+      <li class="reveal"><time>11:45</time><b>Сбор гостей в&nbsp;ЗАГСе</b></li>
+      <li class="reveal"><time>12:20</time><b>Роспись в&nbsp;ЗАГСе</b><small>Приглашаем всех родственников</small></li>
+      <li class="reveal"><time>16:30</time><b>Сбор гостей</b><small>коттедж «Голден»</small></li>
+      <li class="reveal"><time>17:00</time><b>Праздничный банкет</b></li>
+      <li class="reveal"><time>00:00</time><b>Окончание торжества</b></li>
+    </ol>
+  </section>
+
+  <!-- МЕСТО ПРОВЕДЕНИЯ -->
+  <section class="sec place">
+    <svg class="garland reveal" data-n="7" aria-hidden="true"></svg>
+    <h2 class="reveal glow-h">Место проведения</h2>
+
+    <div class="addr-card reveal">
+      <div class="lbl">роспись · 12:20</div>
+      <div class="place-name">ЗАГС</div>
+      <div class="place-addr">Красный проспект, 66,<br>Центральный район, Новосибирск</div>
+      <a class="map-btn" href="https://yandex.ru/maps/65/novosibirsk/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%2066" target="_blank" rel="noopener">Открыть на карте</a>
+    </div>
+
+    <div class="addr-card reveal">
+      <div class="lbl">банкет · 17:00</div>
+      <figure class="venue"><img src="img/venue.jpg" alt="Банкетный зал коттеджа «Голден»" loading="lazy"></figure>
+      <div class="place-name">Коттедж «Голден»</div>
+      <div class="place-addr">Сестрорецкая улица, 16,<br>Октябрьский район, Новосибирск</div>
+      <a class="map-btn" href="https://yandex.ru/maps/65/novosibirsk/?text=%D0%9D%D0%BE%D0%B2%D0%BE%D1%81%D0%B8%D0%B1%D0%B8%D1%80%D1%81%D0%BA%2C%20%D0%A1%D0%B5%D1%81%D1%82%D1%80%D0%BE%D1%80%D0%B5%D1%86%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2016" target="_blank" rel="noopener">Открыть на карте</a>
+    </div>
+  </section>
+
+  <!-- ДРЕСС-КОД -->
+  <section class="sec dress">
+    <svg class="garland reveal" data-n="5" aria-hidden="true"></svg>
+    <h2 class="reveal glow-h">Дресс-код</h2>
+    <p class="txt reveal">Мы будем признательны, если вы&nbsp;поддержите цветовую гамму нашей свадьбы</p>
+    <div class="palette reveal">
+      <div class="sw grey"><i></i>серый</div>
+      <div class="sw silver"><i></i>серебристый</div>
+      <div class="sw sky"><i></i>голубой</div>
+      <div class="sw beige"><i></i>бежевый</div>
+      <div class="sw blue"><i></i>синий</div>
+    </div>
+  </section>
+
+  <!-- ВТОРОЙ ДЕНЬ -->
+  <section class="sec day2">
+    <svg class="garland reveal" data-n="5" aria-hidden="true"></svg>
+    <h2 class="reveal glow-h">И это ещё не всё!</h2>
+    <p class="txt reveal"><b class="accent">Наша история не&nbsp;заканчивается одним днём!</b><br>Приглашаем вас провести с&nbsp;нами ещё один прекрасный день&nbsp;— наполненный отдыхом, улыбками, тёплыми разговорами и&nbsp;приятными моментами.</p>
+    <div class="d2 reveal">
+      <time>11:00</time>
+      <div class="d2-date">25 апреля 2027, воскресенье</div>
+      <div class="place-name">Коттедж «Голден»</div>
+      <div class="place-addr">Сестрорецкая улица, 16, Новосибирск</div>
+      <p class="pool">На второй день нас ждёт отдых у&nbsp;бассейна.<br>Не забудьте взять с&nbsp;собой купальные принадлежности и&nbsp;полотенца ❤️</p>
+    </div>
+  </section>
+
+  <!-- АНКЕТА -->
+  <section class="sec rsvp" id="rsvp">
+    <svg class="garland reveal" data-n="7" aria-hidden="true"></svg>
+    <h2 class="reveal glow-h">Анкета гостя</h2>
+    <p class="txt reveal">Пожалуйста, ответьте на&nbsp;несколько вопросов&nbsp;— это поможет нам всё подготовить</p>
+    <form id="form" class="reveal" novalidate>
+      <label class="f" for="name">Ваше имя и фамилия</label>
+      <input type="text" id="name" name="name" autocomplete="name" placeholder="Например, Анна Иванова">
+
+      <label class="f">Сможете ли вы присутствовать 24&nbsp;апреля?</label>
+      <div class="opts attend">
+        <label class="opt"><input type="radio" name="attend" value="Приду"><span>Приду</span></label>
+        <label class="opt"><input type="radio" name="attend" value="Не приду"><span>Не приду</span></label>
+        <label class="opt"><input type="radio" name="attend" value="Сообщу позже"><span>Сообщу позже</span></label>
+      </div>
+
+      <div class="extra off" id="extra">
+        <label class="f">Что предпочитаете из напитков? <span class="hint2">(можно несколько)</span></label>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="drinks" value="Шампанское"><span>Шампанское</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Белое вино"><span>Белое вино</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Красное вино"><span>Красное вино</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Водка"><span>Водка</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Коньяк"><span>Коньяк</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Джин"><span>Джин</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Самогон"><span>Самогон</span></label>
+          <label class="opt"><input type="checkbox" name="drinks" value="Свой вариант" id="ownChk"><span>Свой вариант</span></label>
+        </div>
+        <input type="text" id="own" class="own off" placeholder="Ваш вариант напитка">
+
+        <label class="f">Предпочтения по горячему</label>
+        <div class="opts two">
+          <label class="opt"><input type="radio" name="food" value="Свинина"><span>Свинина</span></label>
+          <label class="opt"><input type="radio" name="food" value="Курица"><span>Курица</span></label>
+        </div>
+
+        <label class="f">Останетесь ночевать в&nbsp;коттедже после первого дня?</label>
+        <div class="opts two">
+          <label class="opt"><input type="radio" name="stay" value="Да"><span>Да</span></label>
+          <label class="opt"><input type="radio" name="stay" value="Нет"><span>Нет</span></label>
+        </div>
+
+        <label class="f">Будете на втором дне, 25&nbsp;апреля?</label>
+        <div class="opts two">
+          <label class="opt"><input type="radio" name="day2" value="Приду"><span>Приду</span></label>
+          <label class="opt"><input type="radio" name="day2" value="Не приду"><span>Не приду</span></label>
+        </div>
+
+        <label class="f">Останетесь ночевать после второго дня?</label>
+        <div class="opts two">
+          <label class="opt"><input type="radio" name="stay2" value="Да"><span>Да</span></label>
+          <label class="opt"><input type="radio" name="stay2" value="Нет"><span>Нет</span></label>
+        </div>
+      </div>
+
+      <button class="send" type="submit">Отправить</button>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+    <div class="thanks">Спасибо! Ваш ответ получен 🤍</div>
+  </section>
+
+  <!-- ФИНАЛ -->
+  <section class="final">
+    <div class="sign off" id="sign">Ждём вас!</div>
+    <div class="sub">24 · 04 · 2027</div>
+  </section>
+
+</div>
+
+<script>
+/* ---------- вилка ---------- */
+const hero=document.getElementById('hero'), svg=document.getElementById('plugsvg'), bar=document.getElementById('plugbar');
+const plug=document.getElementById('plug'), sock=document.getElementById('socket'), chevs=document.getElementById('chevs');
+const cables=['cable','cableO','cableS','cableH'].map(id=>document.getElementById(id)), spark=document.getElementById('spark');
+const CY=50; let W=0, px=0, pxMin=0, pxMax=0, sx=0, on=false, drag=null;
+
+function layout(){
+  const r=svg.getBoundingClientRect(); W=r.width;
+  svg.setAttribute('viewBox',`0 0 ${W} 100`);
+  sx=W-8; pxMin=52; pxMax=sx-48-60.6+1;        // фланец вилки упирается в лицевую сторону розетки
+  if(!on) px=Math.min(Math.max(px||pxMin,pxMin),pxMax); else px=pxMax;
+  sock.setAttribute('transform',`translate(${sx},${CY})`);
+  spark.setAttribute('cx',sx-46); spark.setAttribute('cy',CY);
+  spark.style.transformOrigin=`${sx-46}px ${CY}px`;
+  draw();
+}
+function draw(){
+  plug.setAttribute('transform',`translate(${px},${CY})`);
+  const ex=px-34, d=`M-30,${CY+34} C${ex*0.3},${CY+48} ${ex*0.62},${CY+3} ${ex},${CY}`;
+  cables.forEach(c=>c.setAttribute('d',d));
+  const mid=(px+90+sx-50)/2 - 15, room=(sx-50)-(px+90);
+  chevs.setAttribute('transform',`translate(${mid},${CY})`);
+  chevs.style.opacity = room>60 ? 1 : 0;
+}
+function xOf(e){const r=svg.getBoundingClientRect(); return (e.clientX-r.left)*(W/r.width);}
+plug.addEventListener('pointerdown',e=>{
+  if(on) return; drag={off:xOf(e)-px}; plug.setPointerCapture(e.pointerId); bar.classList.add('dragging'); e.preventDefault();
+});
+plug.addEventListener('pointermove',e=>{
+  if(!drag||on) return;
+  px=Math.min(Math.max(xOf(e)-drag.off,pxMin),pxMax); draw();
+  if(px>=pxMax-10) plugIn();
+});
+const endDrag=()=>{drag=null;bar.classList.remove('dragging')};
+plug.addEventListener('pointerup',endDrag); plug.addEventListener('pointercancel',endDrag);
+plug.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();autoPull();}});
+sock.addEventListener('click',autoPull);
+document.getElementById('hint').addEventListener('click',autoPull);
+
+function autoPull(){                       // если не получается тянуть — нажатие довезёт вилку само
+  if(on) return; const from=px, t0=performance.now(), dur=900;
+  (function step(t){const k=Math.min((t-t0)/dur,1), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+    px=from+(pxMax-from)*e; draw(); if(k<1) requestAnimationFrame(step); else plugIn();})(t0);
+}
+function plugIn(){
+  if(on) return; on=true; endDrag(); px=pxMax; draw();
+  spark.classList.add('go'); if(navigator.vibrate) navigator.vibrate(30);
+  setTimeout(()=>hero.classList.add('on'),260);  setTimeout(()=>document.documentElement.classList.remove('locked'),1800);
+}
+addEventListener('resize',layout);
+document.fonts && document.fonts.ready.then(layout);
+layout();
+
+/* ---------- неоновые вывески: буквы по отдельности, живое помаргивание ---------- */
+function splitChars(el){
+  const walk=n=>{[...n.childNodes].forEach(c=>{
+    if(c.nodeType===3){const f=document.createDocumentFragment();
+      [...c.textContent].forEach(ch=>{const s=document.createElement('span');s.className='ch';s.textContent=ch;f.appendChild(s);});
+      c.replaceWith(f);}
+    else if(c.nodeType===1 && !c.classList.contains('ln')) walk(c);});};
+  walk(el);
+}
+const signs=[document.querySelector('.names'),document.querySelector('.date'),document.getElementById('sign'),...document.querySelectorAll('.glow-h')];
+signs.forEach(splitChars);
+// заголовки: после «зажигания» при появлении — тоже живут и помаргивают
+document.querySelectorAll('.glow-h').forEach(h=>h.addEventListener('animationend',e=>{ if(e.target===h) h.classList.add('neon-live'); }));
+function flickerLoop(){
+  const live=signs.filter(s=>s.classList.contains('neon-live'));
+  if(live.length){
+    const s=live[Math.floor(Math.random()*live.length)];
+    const chs=[...s.querySelectorAll('.ch')].filter(c=>c.textContent.trim());
+    const c=chs[Math.floor(Math.random()*chs.length)];
+    if(Math.random()<.25){ c.classList.add('dim'); setTimeout(()=>c.classList.remove('dim'),300+Math.random()*900); } // «подсевшая» буква
+    else { c.classList.remove('flk'); void c.offsetWidth; c.classList.add('flk'); }
+  }
+  setTimeout(flickerLoop,1400+Math.random()*3200);
+}
+flickerLoop();
+hero.addEventListener('animationend',e=>{ if(e.target.classList.contains('names')||e.target.classList.contains('date')) e.target.classList.add('neon-live'); });
+
+/* ---------- гирлянды с лампочками ---------- */
+document.querySelectorAll('.garland').forEach(g=>{
+  const n=+g.dataset.n||7, W0=400; g.setAttribute('viewBox',`0 0 ${W0} 96`);
+  const yAt=t=>(1-t)*(1-t)*8+2*t*(1-t)*52+t*t*8;
+  let h=`<path class="wire" d="M0,8 Q200,52 400,8"/>`;
+  for(let i=0;i<n;i++){
+    const t=(i+1)/(n+1), x=W0*t, y=yAt(t), d=(i*0.14).toFixed(2), sw=(-Math.random()*5).toFixed(2);
+    h+=`<g class="bulb" style="animation-delay:${sw}s">
+      <circle class="halo" cx="${x}" cy="${y+21}" r="24" fill="url(#gHalo)" style="transition-delay:${d}s"/>
+      <rect x="${x-3.6}" y="${y}" width="7.2" height="8" rx="1.5" fill="#9a9da5"/>
+      <path class="glass" style="transition-delay:${d}s" d="M${x-3.4},${y+8} C${x-3.4},${y+11} ${x-8},${y+13} ${x-8},${y+20} C${x-8},${y+26} ${x-4},${y+30} ${x},${y+30} C${x+4},${y+30} ${x+8},${y+26} ${x+8},${y+20} C${x+8},${y+13} ${x+3.4},${y+11} ${x+3.4},${y+8} Z"/>
+    </g>`;
+  }
+  g.innerHTML=h;
+});
+
+/* ---------- анкета ---------- */
+const SHEET_URL='https://script.google.com/macros/s/AKfycbyeGUaLIleZkumg2Bq9gfSuxCLsT9FQ4EBPjnVI9Ko4p3qPMi9ZWcgOb67geHM430kuug/exec';   // Google Apps Script «Анкета — Евгений и Вероника» (как в Заказе 3) — пока демо, ответы никуда не уходят
+const form=document.getElementById('form'), extra=document.getElementById('extra'), err=document.getElementById('err');
+const own=document.getElementById('own'), ownChk=document.getElementById('ownChk');
+const val=n=>{const i=form.querySelector(`[name=${n}]:checked`);return i?i.value:'';};
+form.addEventListener('change',()=>{
+  const a=val('attend'); extra.classList.toggle('off',!a||a==='Не приду');     // при «Не приду» доп. вопросы не нужны
+  own.classList.toggle('off',!ownChk.checked);
+});
+form.addEventListener('submit',async e=>{
+  e.preventDefault(); err.textContent='';
+  const nameEl=document.getElementById('name'), name=nameEl.value.trim(), a=val('attend');
+  if(!name){err.textContent='Пожалуйста, укажите имя';nameEl.focus();return;}
+  if(!a){err.textContent='Пожалуйста, выберите: приду, не приду или сообщу позже';return;}
+  const full=a!=='Не приду';
+  const dr=full?[...form.querySelectorAll('[name=drinks]:checked')].map(i=>i.value==='Свой вариант'?(own.value.trim()||'свой вариант'):i.value).join(', '):'';
+  const data={name,attend:a,drinks:dr,food:full?val('food'):'',stay:full?val('stay'):'',day2:full?val('day2'):'',stay2:full?val('stay2'):''};
+  const btn=form.querySelector('.send'); btn.disabled=true;
+  try{ if(SHEET_URL) await fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams(data)}); else console.log('анкета (демо):',data); }
+  catch(_){ btn.disabled=false; err.textContent='Не удалось отправить, попробуйте ещё раз'; return; }
+  document.getElementById('rsvp').classList.add('done');
+});
+
+/* ---------- появление блоков ---------- */
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('seen');io.unobserve(en.target);}}),{threshold:.35});
+document.querySelectorAll('.reveal,#cal').forEach(el=>io.observe(el));
+const sign=document.getElementById('sign');
+new IntersectionObserver((es,o)=>es.forEach(en=>{ if(en.isIntersecting){ o.disconnect();
+  setTimeout(()=>{sign.classList.remove('off');sign.classList.add('lit');},400);
+  sign.addEventListener('animationend',()=>{sign.classList.remove('lit');sign.classList.add('neon-live');},{once:true}); }}),{threshold:.6}).observe(sign);
+</script>
+</body>
+</html>
